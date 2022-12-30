@@ -9,6 +9,7 @@ body {
 
 header {
     position: fixed;
+    height: 80px;
     background-color: #fff;
     top: 0;
     left: 0;
@@ -35,6 +36,7 @@ a{
 }
 .p-header__nav__item {
     margin: 20px;
+    font-weight: 700;
 }
 .circle {
     border-radius: 50%;
@@ -52,7 +54,7 @@ a{
     height:346.78px;
     border-radius: 56px;
     position: relative;
-    margin: auto;
+    margin: 80px auto;
     /* 中央ぞろえ */
     display: flex;
     justify-content: center;
@@ -84,7 +86,7 @@ h2 {
     letter-spacing: 0.05em;
     
 }
-img {
+.official-line-inner-icon {
     background: radial-gradient(#fff 60%, transparent 0%);
 }
 .sentence-add-official-line {
@@ -123,7 +125,17 @@ img {
     z-index: 50;
 } */
 
-/* フッター */
+/* フッターインナー */
+.footer-inner-top {
+    border-top: solid 1px #eee;
+    text-align: center;
+    padding-top: 56px;
+    padding-bottom: 32px;
+}
+.footer-inner-top-second {
+    padding-top: 24.12px;
+    text-align: center;
+}
 
 /* 固定公式ライン */
 .fixed-line-box {
@@ -136,6 +148,20 @@ img {
     right: 16px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    box-shadow: 4px 4px 20px rgb(0 0 0 / 15%);
+}
+.link-icon-text {
+    color: #fff;
+    width: 142px;
+    height: 36px;
+}
+.link-icon-in-greenbox {
+    margin-left: 24px;
+    background: radial-gradient(#fff 50%, transparent 0%);
+}
+.link-icon-white {
+    margin-right: 24px;
 }
 /* フッターボトム */
 .two-icons {
@@ -143,7 +169,8 @@ img {
     display: flex;
     justify-content: center;
     gap: 8px;
-    margin: 10px auto;
+    margin: auto;
+    margin-bottom: 48px;
 }
 .twitter-icon {
     border-radius: 50%;
@@ -156,4 +183,17 @@ img {
     border: 1px solid #adadad;
     font-size: 0;
     padding: 10px;
+}
+
+/* フッターコピーライト */
+.footer-copyright {
+    padding: 36px;
+    border-top: solid 1px #eee;
+    color: #666;
+    font-family: "Plus Jakarta Sans", "Noto Sans JP", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-align: center;
 }
