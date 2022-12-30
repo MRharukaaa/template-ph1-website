@@ -1,0 +1,159 @@
+/* 全てのページに適用 - ヘッダー */
+html {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+    padding-top: 100px;
+}
+
+header {
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
+
+.p-header__logo {
+    padding: 15px 24px;    
+}
+.l-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.p-header__nav__list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+a{
+    color: #666666;
+    text-decoration: none;
+}
+.p-header__nav__item {
+    margin: 20px;
+}
+.circle {
+    border-radius: 50%;
+    border: 1px solid #adadad;
+    padding: 10px;
+    font-size: 0;
+}
+
+/* 公式ライン */
+
+.official-line {
+    background: url(./assets/img/bg-line.jpg);
+    background-size: cover;
+    width:964px;
+    height:346.78px;
+    border-radius: 56px;
+    position: relative;
+    margin: auto;
+    /* 中央ぞろえ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+.official-line::after {
+    display: flex;
+    justify-content: center;
+    background-color: #0071bce4;
+    content:"";
+    width: 100%;
+    height: 100%;
+    border-radius: 56px;
+    position:absolute;
+    top: 0;
+    z-index: 1;
+}
+.official-line-inner {
+    z-index: 2;
+}
+h2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #ffff;
+    font-size: 36px;
+    letter-spacing: 0.05em;
+    
+}
+img {
+    background: radial-gradient(#fff 60%, transparent 0%);
+}
+.sentence-add-official-line {
+    width: 828px;
+    height: 75.59px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    color: #eee;
+    letter-spacing: 0.1em;
+} 
+.button-add-official-line {
+    display: flex;
+}
+.button-add-official-line-inner {
+    background-color: #fff;
+    width: 320px;
+    height: 49.2px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+.link-icon {
+    position: absolute;
+    margin-top: 16px;
+    margin-left: 540px;
+}
+/* 疑似要素使えない？ */
+/* .button-add-official-line-inner::after {
+    background: url(./assets/img/icon/icon-link-gray-dark.svg);
+    z-index: 50;
+} */
+
+/* フッター */
+
+/* 固定公式ライン */
+.fixed-line-box {
+    width: 288px;
+    height: 80px;
+    background-color: #5fdf5b;
+    border-radius: 16px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    align-items: center;
+}
+/* フッターボトム */
+.two-icons {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px auto;
+}
+.twitter-icon {
+    border-radius: 50%;
+    border: 1px solid #adadad;
+    font-size: 0;
+    padding: 10px;
+}
+.instagram-icon {
+    border-radius: 50%;
+    border: 1px solid #adadad;
+    font-size: 0;
+    padding: 10px;
+}
