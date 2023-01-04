@@ -45,8 +45,110 @@ a{
     font-size: 0;
 }
 
-/* 公式ライン */
+/* メイン */
+/* ①ヒーロー画像 */
+.top-hero {
+    position: relative;
+    height: 680px;
+    margin-bottom: 96px;
+}
+.hero-body {
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    top: 198px;
+    bottom: 201px;
+    width: 500px;
+    height: 281px;
+    background: #EFF2F5;
+    border-radius: 24px;
+}
+.posse-community{
+    font-size: 16px;
+    color: #0071BC;
+    padding-top: 40px;
+}
+.hero-catchcopy {
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #333333;
+    padding-bottom: 40px;
+}
+.hero-img {
+    position: absolute;
+    /* width: 976px; */
+    /* height: 680px; */
+    right: 0px;
+    top: 0px;
+    max-width: 100%;
+    /* background: url(./assets/img/img-hero.jpg); */
+    
+}
+.hero-img-pic {
+    border-radius: 80px 0px 0px 80px;
+}
+.top-scroll {
+    position: absolute;
+    bottom: 24px;
+    left:50px;
+}
+.top-scroll::before {
+    background-color: #ccc;
+    border-radius: 8px;
+    content: "";
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    bottom: 5px;
+    left: -12px;
+}
 
+/* ②POSSEとは　説明 */
+.top-about {
+    margin-bottom: 140px;
+}
+.top-about-container {
+    text-align: center;
+}
+.about-posse-sentence-first {
+    color: #333333;
+    margin: 12px auto;
+}
+
+.about-posse-sentence-second {
+    color: #0071BC;
+    display: block;
+    font-size: 14px;
+    letter-spacing: initial;
+    line-height: 1.8;
+    margin-bottom: 43px;
+}
+.top-about-body {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+.top-about-body-img {
+    width: 75%;
+}
+.top-about-body-img-pic {
+    border-radius: 24px;
+}
+.top-about-body-content {
+    /* width: 472px; */
+    /* height: 312px; */
+    margin: auto;
+    margin-left: 40px;
+    width: 70%;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* 公式ライン */
 .official-line {
     background: url(./assets/img/bg-line.jpg);
     background-size: cover;
@@ -59,7 +161,6 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 0;
 }
 
 .official-line::after {
@@ -150,6 +251,7 @@ h2 {
     align-items: center;
     justify-content: space-between;
     box-shadow: 4px 4px 20px rgb(0 0 0 / 15%);
+    z-index: 10;
 }
 .link-icon-text {
     color: #fff;
