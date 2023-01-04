@@ -1,19 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ITクイズ制作 POSSE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./assets/styles/normalize.css" />
+  </head>
+
+  <body>
     <!-- ヘッダー -->
-    <header>
-        <div>
-            <img src="images" alt="KUJIRA CAFE"></a>
-        </div>
+    <header id="js-header" class="l-header p-header">
+      <div class="p-header__logo">
+        <img src="./assets/img/logo.svg" alt="POSSE" />
+      </div>
+      <div class="p-header__inner">
+        <nav class="p-header__nav">
+          <ul class="p-header__nav__list">
+            <li class="p-header__nav__item">
+              <a
+                href="https://posse-ap.github.io/sample-ph1-website/"
+                class="p-header__nav__item__link"
+                >POSSEとは</a
+              >
+            </li>
+            <li class="p-header__nav__item">
+              <a
+                href="https://posse-ap.github.io/sample-ph1-website/quiz/"
+                class="p-header__nav__item__link"
+                >クイズ</a
+              >
+            </li>
+            <li class="p-header__nav__item circle">
+              <a href="https://twitter.com/posse_program"
+                ><img src="./assets/img/icon/icon-twitter.svg" alt=""
+              /></a>
+            </li>
+            <li class="p-header__nav__item circle">
+              <a href="https://www.instagram.com/posse_programming/"
+                ><img src="./assets/img/icon/icon-instagram.svg" alt=""
+              /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <main></main>
-</body>
+    <!-- メイン -->
+    <main>
+      <section class="q-hero">
+        <div class="q-hero-container">
+          <h1 class="q-hero-title">
+            <span class="q-hero-title-first">POSSE課題</span>
+            <span class="q-hero-title-second">ITクイズ</span>
+          </h1>
+        </div>
+      </section>
+      <!-- クイズ1問目 -->
+      <div class="q-box-question">
+        <section class="q-box-question-first">
+          <!-- 問題 -->
+          <div class="q-box-question-question">
+            <div class="q-box-question-question-contents">
+              <div class="q-box-question-question-q1">Q1</div>
+              <div class="q-box-question-question-sentence">
+                日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？
+              </div>
+            </div>
+            <figure class="q-box-question-question-img">
+              <img src="./assets/img/quiz/img-quiz01.png" alt="" width="70%">
+            </figure>
+          </div>
+          <!-- 答え -->
+          <div class="q-box-question-answer">
+            <div class="q-box-question-answer-content">
+              <div class="q-box-question-question-q1">Q1</div>
+              <div class="q-box-question-question-sentence">
+                日本のIT人材が2030年には最大どれくらい不足すると言われているでしょうか？
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </main>
+  </body>
 </html>

@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 header {
@@ -220,11 +220,6 @@ h2 {
     margin-top: 16px;
     margin-left: 540px;
 }
-/* 疑似要素使えない？ */
-/* .button-add-official-line-inner::after {
-    background: url(./assets/img/icon/icon-link-gray-dark.svg);
-    z-index: 50;
-} */
 
 /* フッターインナー */
 .footer-inner-top {
@@ -298,4 +293,70 @@ h2 {
     font-size: 10px;
     letter-spacing: 0.1em;
     text-align: center;
+}
+
+/* ここからクイズ */
+/* ヒーロー画像、タイトル */
+.q-hero-container {
+    background-image: url(./assets/img/quiz/bg-hero.jpg);
+    height: 320px;
+    width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.q-hero-title {
+    margin: 0;
+    position: relative;
+}
+.q-hero-title-first {
+    display: block;
+    position: absolute;
+    top: 110px;
+    left: 204px;
+    font-weight: 700;
+    font-size: 18px;
+    color: #EFF2F5;
+}
+.q-hero-title-second {
+    display: block;
+    position: absolute;
+    width: 236px;
+    left: 204px;
+    top: 154px;
+    font-weight: 700;
+    font-size: 60px;
+    color: #FFFFFF;
+}
+/* クイズ */
+/* 問題 */
+.q-box-question {
+    margin: 120px 228px;
+}
+.q-box-question-question-contents {
+    color: #000;
+}
+.q-box-question-question-q1 {
+    background-color: #0071bc;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    width: 58px;
+    height: 60px;
+    text-align: center;
+    padding: 8px 16px;
+    line-height: 1.3;
+} 
+.q-box-question-question-sentence {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 16px;
+    color: #333333;
+}
+.q-box-question-question-img {
+    text-align: center;
+}
+/* 答え */
+.q-box-question-answer {
+
 }
