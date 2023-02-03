@@ -371,7 +371,7 @@ h2 {
     margin: 55px 0 16px 0;
     line-height: 1.3;
 }
-/* 回答ボタンのボタン押すやつjs */
+/* 回答ボタン押すやつjs */
 .js-quiz-boxes {
     display: flex;
     gap: 24px;
@@ -404,6 +404,28 @@ h2 {
     position: absolute;
     right: 24px;
     top: 31px;
+}
+/* 選択されたやつ↓ */
+.selected-answer {
+    border: #0071BC solid 5px;
+    color: #0071BC;
+    
+    background-color: #EFF2F5;
+}
+
+/* 正解不正解box */
+.p-quiz-box__answer {
+    background-color: #eee;
+    display: none;
+}
+.add-p-quiz-box__answer {
+    display: block;
+}
+.correct-answer {
+    color: #E34E70;
+}
+.incorrect-answer {
+    color: #0071BC;
 }
 
 /* 引用 */
