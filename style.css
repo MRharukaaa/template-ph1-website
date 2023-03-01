@@ -448,6 +448,9 @@ h2 {
 .incorrect-answer {
     color: #0071BC;
 }
+.incorrect-answer-box {
+    background-color: #98c8e8;
+}
 .show-answer-ex {
     font-family: Noto Sans JP;
     font-size: 18px;

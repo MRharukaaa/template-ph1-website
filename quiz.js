@@ -55,7 +55,22 @@ const ALL_QUIZ = [
 
 // ここに問題文
 let createAllQuiz = '';
-ALL_QUIZ.forEach((element) => {
+
+function arrShuffle(arr) {
+    var len = arr.length;
+    while(len > 0){
+        var rnd = Math.floor(Math.random() * len);
+        var tmp = arr[len-1];
+        arr[len-1] = arr[rnd];
+        arr[rnd] = tmp;
+        len-=1;
+    }
+}
+
+arrShuffle(ALL_QUIZ);
+
+ALL_QUIZ.forEach((element, index) => {
+    // indexは問題番号とってる
 // ここでの↑elementはALL_QUIZの｛｝で区切られてるやつ。
     
     let quiz = '';
@@ -68,7 +83,7 @@ ALL_QUIZ.forEach((element) => {
     quiz += `
     <div class="q-box-question-question">
         <div class="q-box-question-question-contents">
-            <div class="q-box-question-question-q1">Q${element.id}</div>
+            <div class="q-box-question-question-q1">Q${index + 1}</div>
             <div class="q-box-question-question-sentence">
             ${element.question}
             </div>
@@ -214,6 +229,7 @@ allQuiz.forEach((quiz) => {
             } else {
                 showAnswer.innerText = "不正解・・・";
                 showAnswer.classList.add("incorrect-answer");
+                answerBox.classList.add("incorrect-answer-box");
             }
         });
     });
