@@ -57,20 +57,29 @@ const ALL_QUIZ = [
 let createAllQuiz = '';
 
 function arrShuffle(arr) {
+    // アレイarr
     var len = arr.length;
+    // ALL_QUIZの長さが入った↑
     while(len > 0){
         var rnd = Math.floor(Math.random() * len);
+        // ☆rndの中身は１回目の処理のときはrndには0~5だけ入ってる
+        // ☆Math.randomに６をかける len=6
+        // ☆Math.floorで整数以下を切り捨て。
+
         var tmp = arr[len-1];
         arr[len-1] = arr[rnd];
         arr[rnd] = tmp;
+        // ↑スワップしている
+
         len-=1;
+        // ↑lengthを１こ減らして次へ繰り返し
     }
 }
 
 arrShuffle(ALL_QUIZ);
 
 ALL_QUIZ.forEach((element, index) => {
-    // indexは問題番号とってる
+    // index・・・foreachが何周目かを表す
 // ここでの↑elementはALL_QUIZの｛｝で区切られてるやつ。
     
     let quiz = '';
@@ -130,9 +139,9 @@ ALL_QUIZ.forEach((element, index) => {
     </div>`
     
     // ↓ここからtrueかfalseかで引用を表示させるかさせないかを決める処理。
-    // ☆実はelement.noteそのもので、trueかfalseの値を持っている！！！
+    // ☆実はelement.noteそのもので、trueかfalseの値を持っている！！！undifined
     // 引用
-    if(element.note) {
+    if (element.note) {
         //trueの場合の処理↓
         quiz += `
         <div class="q-box-question-cite">
@@ -158,6 +167,8 @@ quizContainer.innerHTML = createAllQuiz;
 // これに↑６問分のクイズが入っている
 
 
+
+// ここから選択肢を押したときの挙動を書いている
 // 全ての問題を取得↓
 const allQuiz = document.querySelectorAll(".q-box-question");
 
@@ -198,28 +209,41 @@ const CORRECT_ANSWERS = [
 allQuiz.forEach((quiz) => {
     const answers = quiz.querySelectorAll(".js-quiz-boxes-button");
     const selectedQuiz = Number(quiz.getAttribute("data-quiz"));
+    // Numberは数字以外のものは省く。本当はここになくてもいい
+    // data-quizはid class と同じ「属性」
+    // ここでは属性を取得している
     const answerBox = quiz.querySelector(".p-quiz-box__answer");
     const showAnswer = quiz.querySelector(".show-answer");
     const showEx = quiz.querySelector(".show-answer-ex");
     const setDisabled = () => {
+        // アロー関数
         answers.forEach((answer) => {
             answer.style.pointerEvents = "none";
         });
+        // foreachは.の前（answers）の長さ分だけ繰り返す 今回は長さは3 
     };
 
-    // 選択肢
+
+    // ここから選択肢の挙動
     answers.forEach((answer, selectedAnswer) => {
+    // answerが選択肢の中身。selectedAnswerはこのForeachが何周目かを表す。
 
         answer.addEventListener("click", () => {
             // 押されたら出現させる↓
+            // ☆addEventListenerには"click"以外にもたくさんある。
             answerBox.classList.add("add-p-quiz-box__answer");
             answer.classList.add("selected-answer");
+            // answerBox,answerにそれぞれ新たなクラスを追加している。
 
             // Disabledのやつ。関数呼び出してる↓
             setDisabled();
 
             // もしCORRECT_ANSWERS[selectedQuiz].correctNumberがselectedAnswerと等しかったら正解↓
             const isCorrect = CORRECT_ANSWERS[selectedQuiz].correctNumber === selectedAnswer;
+            // CORRECT_ANSWERS[selectedQuiz].correctNumberは場所を表す
+            // selectedQuizは遡ればidのこと。
+            // ☆[]には数字が入る。今回はidの数字が入っている。
+            // ☆連想配列のときは.を使ってつなげる↑
             // 説明↓
             showEx.innerText = CORRECT_ANSWERS[selectedQuiz].value;
             if (isCorrect) {
