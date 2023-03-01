@@ -77,9 +77,7 @@ const ALL_QUIZ = [
  * @description クイズコンテナーの取得
  * @type {HTMLElement}
  */
-// クイズの型(コンテナー)↓
-const quizContainer = doc
-ainer");
+const quizContainer = document.getElementById("js-quizContainer");
 
 /**
  * @description クイズ１つ１つのHTMLを生成するための関数
@@ -177,10 +175,11 @@ const shuffle = (arrays) => {
     // randomIndexの中には整数しかない
     // 右端の値も含みたいときは乱数の発生式に１足す必要ある
     // よってこの場合、i + 1だから、0以上i以下になってる
+    // https://pisuke-code.com/js-generate-integer-random/
 
     // ☆なんでslice?
-    // 
-    // https://pisuke-code.com/js-generate-integer-random/
+    // もしそのままarray=arraysにすると、arraysの中身が変わってしまう。その変更を防ぐためにsliceを使ってる。
+
     [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
   }
   return array;
@@ -215,9 +214,66 @@ quizContainer.innerHTML = quizArray
     return createQuizHtml(quizItem, index);
   })
   .join("");
-  // ☆mapメソッド
-  // https://www.sejuku.net/blog/21812
-  // ～L143
+// ☆mapメソッド
+// https://www.sejuku.net/blog/21812
+// ～L143
+
+// ☆どういうときにmapメソッドをつかうか？
+// コードを短く見えやすくしたいときに使う。今回はfor文の代わりになっている。なんでfor文作って比較して自分で考えてみて。
+
+/**
+ * @type {NodeListOf<Element>}
+ * @description すべての問題を取得
+ */
+const allQuiz = document.querySelectorAll(".js-quiz");
+// ~L149
+
+/**
+ * @description buttonタグにdisabledを付与
+ * @param answers {NodeListOf<Element>}
+ */
+const setDisabled = (answers) => {
+  answers.forEach((answer) => {
+    answer.disabled = true;
+  });
+};
+// ~L159
+
+/**
+ * @description trueかfalseで出力する文字列を出し分ける
+ * @param target {Element}
+ * @param isCorrect {boolean}
+ */
+const setTitle = (target, isCorrect) => {
+  target.innerText = isCorrect ? "正解！" : "不正解...";
+};
+// ~L168
+// ☆このtarget, isCorrectって？？
+// ここでは、数学のXYみたいなもの。仮引数かな？実際に代入する値を後で決めることができる。
+// 例えば、この後に
+// setTitle(allQuiz[0], true)
+// と書く。
+// X=allQuiz[0], Y=true
+// みたいに。
+// ※このとき{Element}、{boolean}が設定されているから、
+// (Elementのもの, booleanのもの(trueとかfalseとか))じゃないといけない。
+
+// ☆メソッドとは
+// https://www.sejuku.net/blog/24962
+
+/**
+ * @description trueかfalseでクラス名を付け分ける
+ * @param target {Element}
+ * @param isCorrect {boolean}
+ */
+const setClassName = (target, isCorrect) => {
+  target.classList.add(isCorrect ? "is-correct" : "is-incorrect");
+};
+// どこにクラスをつけてる??
+// 自分で考えろ。HTML上のどこにやればいいかな？
+
+
+
 
 
 
