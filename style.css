@@ -488,7 +488,7 @@ h2 {
     /* ハンバーガーメニュー */
     /* https://zero-plus.io/media/jquery-hamburger/#%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E7%A2%BA%E8%AA%8D */
     .p-header__nav {
-        visibility:hidden;
+        visibility: hidden;
     }
     /* ↑↑こいつを開いた時に活用する */
     .hamburger {
@@ -559,32 +559,80 @@ h2 {
     }
 
     /* クリックした後のメニュー表示↓ */
-    .body-container.active {
-        visibility:visible;
-        background-color: #8fc72e;
-        height: ;
-        padding: 0;
+    .l-header.p-header.active {
+        width: 100%;
+        /* visibility:visible; */
+        display: block;
+        background-color: #fff;
+        height: 100%;
+        /* padding: 0; */
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
+        position: fixed;
+        z-index: 99;
     }
-      /* ナビのリンク */
-      /* まだ */
-    .p-header__nav__item a {
-        color: black;
-        width: 100%;
+    /* クリックした後のナビ↓ */
+    .p-header__nav.active {
+        visibility: visible;
+        margin-top: 76px;
+    }
+    .p-header__nav__list.active {
         display: block;
+        font-family: 'Noto Sans JP';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
         text-align: center;
-        font-size: 20px;
-        margin-bottom: 24px;
+        padding: 0;
     }
-    .p-header__nav__item:last-child a {
-        margin-bottom: 0;
+    .p-header__nav__item.active {
+        margin: 24px;
+    }
+    .p-header__nav__item.circle.active {
+        display: none;
     }
 
-
-
+    /* クリックした後の公式ライン↓ */
+    .h-fixed-line {
+        background-color: #5FDF5B;
+        ;
+        width: 90%;
+        border-radius: 50px;
+        margin: 210px auto 0 auto;
+        /* height: 60px; */
+    }
+    .h-fixed-line-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .h-link-icon-in-greenbox {
+        margin-left: 24px;
+        background: radial-gradient(#fff 50%, transparent 0%);
+    }
+    .h-link-icon-text {
+        color: #fff;
+        width: 150px;
+        /* height: 36px; */
+    }
+    .h-footer-inner-top {
+        /* border-top: solid 1px #eee; */
+        text-align: center;
+        padding-top: 24px;
+        padding-bottom: 36px;
+    }
+    .h-two-icons {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin: auto;
+        /* margin-bottom: 48px; */
+    }
+    
+    
     /* ヒーロー */
     .top-hero {
         height: 300px;

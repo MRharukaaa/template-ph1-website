@@ -14,38 +14,37 @@
     <link rel="stylesheet" href="./assets/styles/normalize.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
-
+  
   <body>
-    <div class="body-container" id="js-body">
-      <!-- ヘッダー -->
-      <header id="js-header" class="l-header p-header">
+    <!-- ヘッダー -->
+    <header id="js-header" class="l-header p-header">
       <div class="p-header__logo">
         <img src="./assets/img/logo.svg" alt="POSSE" />
       </div>
       <div class="p-header__inner">
         <!-- idを付け足したnavタグ↓ -->
         <nav class="p-header__nav" id="js-nav">
-          <ul class="p-header__nav__list">
-            <li class="p-header__nav__item">
+          <ul class="p-header__nav__list" id="js-nav-list">
+            <li class="p-header__nav__item" id="js-nav-item-first">
               <a
-                href="https://posse-ap.github.io/sample-ph1-website/"
+                href="./index.html"
                 class="p-header__nav__item__link"
                 >POSSEとは</a
               >
             </li>
-            <li class="p-header__nav__item">
+            <li class="p-header__nav__item" id="js-nav-item-second">
               <a
                 href="./quiz.html"
                 class="p-header__nav__item__link"
                 >クイズ</a
               >
             </li>
-            <li class="p-header__nav__item circle">
+            <li class="p-header__nav__item circle" id="js-nav-item-third">
               <a href="https://twitter.com/posse_program"
                 ><img src="./assets/img/icon/icon-twitter.svg" alt=""
               /></a>
             </li>
-            <li class="p-header__nav__item circle">
+            <li class="p-header__nav__item circle" id="js-nav-item-fourth">
               <a href="https://www.instagram.com/posse_programming/"
                 ><img src="./assets/img/icon/icon-instagram.svg" alt=""
               /></a>
@@ -61,10 +60,13 @@
           <span></span>
         </button>
       </div>
-      </header>
+      <!-- フッターの内容はjsで取得する↓ -->
+      <div class="p-header__footer" id="js-footer">
+      </div>
+    </header>
 
-      <!-- メイン -->
-      <main>
+    <!-- メイン -->
+    <main>
       <!-- ①ヒーロー画像 -->
       <div class="top-hero">
         <div class="hero-body">
@@ -144,9 +146,9 @@
           </div>
         </div>
       </div>
-      </main>
+    </main>
 
-      <footer>
+    <footer>
       <!-- 固定公式ライン -->
       <div class="fixed-line">
         <a
@@ -229,11 +231,10 @@
       <div class="footer-copyright">
         <small>©2022 POSSE</small>
       </div>
-      </footer>
-    </div>
+    </footer>
 
-  <!-- jQueryのCDNをmain.jsの直前の記述 -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="hamburger.js"></script>
+    <!-- jQueryのCDNをmain.jsの直前の記述 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="hamburger.js"></script>
   </body>
 </html>
