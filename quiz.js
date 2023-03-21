@@ -1,8 +1,10 @@
 "use strict";
+// エラーが厳格化
 
 const quizContainer = document.getElementById("js-quizContainer");
 // IDを取得
 
+// クイズの内容や答えや引用を入れている
 const ALL_QUIZ = [
     {
         id: 1,
@@ -27,7 +29,6 @@ const ALL_QUIZ = [
             "Internet of Things",
             "Integrate into Technology",
             "Information on Tool",
-            
         ],
         correctNumber: 0,
     },
@@ -53,14 +54,21 @@ const ALL_QUIZ = [
     },
 ];
 
-// ここに問題文
+
+
+
+
+// ここに問題文　空のHTMLを作成し、
 let createAllQuiz = '';
 
+// シャッフル↓
 function arrShuffle(arr) {
-    // アレイarr
+    // arrを仮引数として関数を定義
+    // ここのアレイarrは仮引数　あとでALL_QUIZが当てはまる
     var len = arr.length;
-    // ALL_QUIZの長さが入った↑
+    // ALL_QUIZの長さ=6が入った↑　
     while(len > 0){
+        // 回す　処理を６回繰り返し
         var rnd = Math.floor(Math.random() * len);
         // ☆rndの中身は１回目の処理のときはrndには0~5だけ入ってる
         // ☆Math.randomに６をかける len=6
@@ -69,25 +77,32 @@ function arrShuffle(arr) {
         var tmp = arr[len-1];
         arr[len-1] = arr[rnd];
         arr[rnd] = tmp;
-        // ↑スワップしている
+        // ↑値の入れ替え＝スワップしている
 
         len-=1;
-        // ↑lengthを１こ減らして次へ繰り返し
+        // ↑処理を６回繰り返したいので、lengthを１こ減らして次へ繰り返し
     }
 }
 
 arrShuffle(ALL_QUIZ);
+// 呼び出し
+
+
+
+
 
 ALL_QUIZ.forEach((element, index) => {
     // index・・・foreachが何周目かを表す
-// ここでの↑elementはALL_QUIZの｛｝で区切られてるやつ。
+    // ここでの↑elementはALL_QUIZの｛｝で区切られてるやつ。
     
     let quiz = '';
     
+    // 問題の内容
     quiz += `
     <div class="q-box-question" data-quiz="${element.id - 1}">
         <section class="q-box-question-first">
     `;
+    // タグの始まりを示しています
     
     quiz += `
     <div class="q-box-question-question">
@@ -164,15 +179,16 @@ ALL_QUIZ.forEach((element, index) => {
 });
 
 quizContainer.innerHTML = createAllQuiz;
-// これに↑６問分のクイズが入っている
+// これに↑６問分のクイズが入っている　
 
 
-
+// ④
 // ここから選択肢を押したときの挙動を書いている
-// 全ての問題を取得↓
+// クイズの全てを取得↓
 const allQuiz = document.querySelectorAll(".q-box-question");
 
-// クイズ
+// クイズの正解の選択肢
+// 正解の内容、番号入ってる
 const CORRECT_ANSWERS = [
     {
         correctNumber: 1,
@@ -207,18 +223,24 @@ const CORRECT_ANSWERS = [
 ];
 
 allQuiz.forEach((quiz) => {
+    // ④のすぐ下で宣言している　
+    // 変数は宣言　関数は定義
     const answers = quiz.querySelectorAll(".js-quiz-boxes-button");
+    // ↑選択肢が入ってる　３つ
     const selectedQuiz = Number(quiz.getAttribute("data-quiz"));
-    // Numberは数字以外のものは省く。本当はここになくてもいい
     // data-quizはid class と同じ「属性」
     // ここでは属性を取得している
+    // 属性値を数値化するのがNumber 
+    // data-quizは文字列になっているため数値化する必要がある
     const answerBox = quiz.querySelector(".p-quiz-box__answer");
     const showAnswer = quiz.querySelector(".show-answer");
     const showEx = quiz.querySelector(".show-answer-ex");
+    // 何が答えなのかについてのHTMLの要素を取得してきている
     const setDisabled = () => {
         // アロー関数
         answers.forEach((answer) => {
             answer.style.pointerEvents = "none";
+            // クリックしたときに他のボタンを押せなくする
         });
         // foreachは.の前（answers）の長さ分だけ繰り返す 今回は長さは3 
     };
@@ -226,18 +248,20 @@ allQuiz.forEach((quiz) => {
 
     // ここから選択肢の挙動
     answers.forEach((answer, selectedAnswer) => {
+    // answerには３つの選択肢のうち１つが入っている
     // answerが選択肢の中身。selectedAnswerはこのForeachが何周目かを表す。
-
         answer.addEventListener("click", () => {
             // 押されたら出現させる↓
             // ☆addEventListenerには"click"以外にもたくさんある。
             answerBox.classList.add("add-p-quiz-box__answer");
+            // 答えが表示される↑
             answer.classList.add("selected-answer");
             // answerBox,answerにそれぞれ新たなクラスを追加している。
 
             // Disabledのやつ。関数呼び出してる↓
             setDisabled();
 
+            // 正解か不正解かの処理↓
             // もしCORRECT_ANSWERS[selectedQuiz].correctNumberがselectedAnswerと等しかったら正解↓
             const isCorrect = CORRECT_ANSWERS[selectedQuiz].correctNumber === selectedAnswer;
             // CORRECT_ANSWERS[selectedQuiz].correctNumberは場所を表す
@@ -246,6 +270,7 @@ allQuiz.forEach((quiz) => {
             // ☆連想配列のときは.を使ってつなげる↑
             // 説明↓
             showEx.innerText = CORRECT_ANSWERS[selectedQuiz].value;
+            // 正しい　
             if (isCorrect) {
                 showAnswer.innerText = "正解！";
                 // 要素.classList・・・

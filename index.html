@@ -16,13 +16,15 @@
   </head>
 
   <body>
-    <!-- ヘッダー -->
-    <header id="js-header" class="l-header p-header">
+    <div class="body-container" id="js-body">
+      <!-- ヘッダー -->
+      <header id="js-header" class="l-header p-header">
       <div class="p-header__logo">
         <img src="./assets/img/logo.svg" alt="POSSE" />
       </div>
       <div class="p-header__inner">
-        <nav class="p-header__nav">
+        <!-- idを付け足したnavタグ↓ -->
+        <nav class="p-header__nav" id="js-nav">
           <ul class="p-header__nav__list">
             <li class="p-header__nav__item">
               <a
@@ -50,11 +52,19 @@
             </li>
           </ul>
         </nav>
-      </div>
-    </header>
 
-    <!-- メイン -->
-    <main>
+        <!-- ハンバーガーメニュー -->
+        <!-- クラスactiveがボタン押したら追加されるようにしたい
+        idも設定した-->
+        <button class="hamburger" id="js-hamburger"> 
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      </header>
+
+      <!-- メイン -->
+      <main>
       <!-- ①ヒーロー画像 -->
       <div class="top-hero">
         <div class="hero-body">
@@ -62,12 +72,11 @@
             学生プログラミングコミュニティ  POSSE（ポッセ）
           </h1>
           <span class="hero-catchcopy">
-            自分史上最高<br>
-            を仲間と。
+            自分史上最高を仲間と。
           </span>
         </div>
         <div class="hero-img">
-          <img src="./assets/img/img-hero.jpg" alt="" width="976px" height="680px" class="hero-img-pic">
+          <img src="./assets/img/img-hero.jpg" alt="" width="100%" class="hero-img-pic">
 
         </div>
         <div class="top-scroll">
@@ -113,7 +122,7 @@
               下記ボタンより友達追加をお願いします！
             </p>
           </div>
-          <div>
+          <div class="white-button">
             <!-- 白いボタン↓ -->
             <a
               href="https://line.me/R/ti/p/@651htnqp?from=page"
@@ -135,9 +144,9 @@
           </div>
         </div>
       </div>
-    </main>
+      </main>
 
-    <footer>
+      <footer>
       <!-- 固定公式ライン -->
       <div class="fixed-line">
         <a
@@ -220,6 +229,11 @@
       <div class="footer-copyright">
         <small>©2022 POSSE</small>
       </div>
-    </footer>
+      </footer>
+    </div>
+
+  <!-- jQueryのCDNをmain.jsの直前の記述 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="hamburger.js"></script>
   </body>
 </html>

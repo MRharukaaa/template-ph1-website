@@ -57,6 +57,7 @@ a{
     text-align: center;
     z-index: 1;
     top: 198px;
+    left: 10%;
     bottom: 201px;
     width: 500px;
     height: 281px;
@@ -78,7 +79,7 @@ a{
 }
 .hero-img {
     position: absolute;
-    /* width: 976px; */
+    width: 60%;
     /* height: 680px; */
     right: 0px;
     top: 0px;
@@ -138,8 +139,6 @@ a{
     border-radius: 24px;
 }
 .top-about-body-content {
-    /* width: 472px; */
-    /* height: 312px; */
     margin: auto;
     margin-left: 40px;
     width: 70%;
@@ -152,7 +151,7 @@ a{
 .official-line {
     background: url(./assets/img/bg-line.jpg);
     background-size: cover;
-    width:964px;
+    width: 70%;
     height:346.78px;
     border-radius: 56px;
     position: relative;
@@ -185,13 +184,12 @@ h2 {
     color: #ffff;
     font-size: 36px;
     letter-spacing: 0.05em;
-    
 }
 .official-line-inner-icon {
     background: radial-gradient(#fff 60%, transparent 0%);
+    height: 40px;
 }
 .sentence-add-official-line {
-    width: 828px;
     height: 75.59px;
     display: flex;
     justify-content: center;
@@ -200,12 +198,17 @@ h2 {
     color: #eee;
     letter-spacing: 0.1em;
 } 
+/* .white-button {
+    position: relative;
+} */
 .button-add-official-line {
-    display: flex;
+    /* display: flex; */
+    /* position: relative; */
+    width: 70%;
 }
 .button-add-official-line-inner {
     background-color: #fff;
-    width: 320px;
+    width: 60%;
     height: 49.2px;
     margin: 0 auto;
     text-align: center;
@@ -217,8 +220,7 @@ h2 {
 }
 .link-icon {
     position: absolute;
-    margin-top: 16px;
-    margin-left: 540px;
+    right: 200px;
 }
 
 /* フッターインナー */
@@ -296,6 +298,7 @@ h2 {
 }
 
 /* ここからクイズ */
+/* js関わるところだけ */
 /* ヒーロー画像、タイトル */
 .q-hero-container {
     background-image: url(./assets/img/quiz/bg-hero.jpg);
@@ -308,6 +311,7 @@ h2 {
     margin: 0;
     position: relative;
 }
+/* クイズ */
 .q-hero-title-first {
     display: block;
     position: absolute;
@@ -327,7 +331,6 @@ h2 {
     font-size: 60px;
     color: #FFFFFF;
 }
-/* クイズ */
 /* 問題 */
 .q-box-question {
     margin: 11%;
@@ -406,6 +409,7 @@ h2 {
     top: 31px;
 }
 /* 選択されたやつ↓ */
+/* ボタン押すとjsでクラスが追加されます。 */
 .selected-answer {
     border: #0071BC solid 5px;
     color: #0071BC;
@@ -479,3 +483,203 @@ h2 {
     font-size: 18px;
     line-height: 180%;
 }
+
+@media (max-width: 767px) {
+    /* ハンバーガーメニュー */
+    /* https://zero-plus.io/media/jquery-hamburger/#%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%81%AE%E7%A2%BA%E8%AA%8D */
+    .p-header__nav {
+        visibility:hidden;
+    }
+    /* ↑↑こいつを開いた時に活用する */
+    .hamburger {
+        height: 44px;
+        width: 44px;
+        position: absolute;
+        right: 21px;
+        top: 20px;
+        z-index: 100;
+
+        /* 元々のbuttonスタイルをリセット↓ */
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        padding: 0;
+        appearance: none;
+    }
+    /* 擬似要素使うver↓ */
+    /* .hamburger::before, .hamburger::after {
+        content: "";
+        height: 1px;
+        width: 34px;
+        background-color: #333333;
+        display: block;
+        position: absolute;
+        right: 3px;
+    } */
+    /* マージンはabsoluteに効かない
+    横幅を指定してないと効かない */
+    /* .hamburger::before {
+        top: 13px;
+    }
+    .hamburger::after {
+        bottom: 13px;
+    } */
+
+    /* spanタグ使ってやり直し↓ */
+    /* ハンバーガーメニューの線 */
+    .hamburger span {
+        width: 100%;
+        height: 1px;
+        background-color: #000;
+        position: relative;
+        transition: ease .4s; /*ハンバーガーメニュークリック時の三本線の動きを遅延*/
+        display: block;
+    }
+    .hamburger span:nth-child(1) {
+        position: absolute;
+        top: 0;
+    }
+    .hamburger span:nth-child(2) {
+        position: absolute;
+        bottom: 5;
+    }
+
+    /* ハンバーガーボタンクリック後のスタイル */    
+    .hamburger.active span:nth-child(1) {
+        position: absolute;
+        top: 0;
+
+        transform: rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        position: absolute;
+        top: 0;
+        transform: rotate(-45deg);
+    }
+
+    /* クリックした後のメニュー表示↓ */
+    .body-container.active {
+        visibility:visible;
+        background-color: #8fc72e;
+        height: ;
+        padding: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+      /* ナビのリンク */
+      /* まだ */
+    .p-header__nav__item a {
+        color: black;
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 24px;
+    }
+    .p-header__nav__item:last-child a {
+        margin-bottom: 0;
+    }
+
+
+
+    /* ヒーロー */
+    .top-hero {
+        height: 300px;
+    }
+    .hero-img {
+        width: 100%;
+    }
+    .hero-img-pic {
+        border-radius: 0px;
+    }
+    /* .top-hero {
+        padding: 0 auto;
+    } */
+    .hero-body {
+        /* position: relative; */
+        position: absolute;
+        height: 110px;
+        top: 240px;
+        width: 343px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        
+        /* margin: 0 auto; */
+        /* ↑なんできかないのおおおおおおおおおおおおおおおおおおおおお */
+        /* https://abillyz.com/watanabe/studies/245 */
+        /* →absoluteにはmarginがない */
+    }
+    .posse-community {
+        font-size: 12px;
+    }
+    .hero-catchcopy {
+        font-size: 28px;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    /* 固定公式ライン */
+    .fixed-line-box {
+        width: 100%;
+        height: 48px;
+        background-color: #5fdf5b;
+        border-radius: 0px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 10;
+    }
+    /* ラインアイコンを右に寄せたかったあああああああああああああああああああ↓諦め */
+    .link-icon-in-greenbox {
+        /* position: relative; */
+    }
+    .link-icon-in-greenbox::before {
+        /* content: url(./assets/img/icon/icon-line.svg);
+        position: absolute; */
+    }
+    .fixed-line-box {
+    }
+    .link-icon-in-greenbox {
+        margin: 0;
+        margin-left: 10%;
+    }
+    .link-icon-text {
+        font-size: 0;
+        width: 49%;
+        position: relative;
+    }
+    .link-icon-text::before {
+        font-size: 14px;
+        content: '公式LINEで最新情報をGET！';
+        position: absolute;
+        top: 10px;
+
+    }
+    /* .link-icon-white {
+
+    } */
+
+    /* POSSEとは　説明↓ */
+    .top-about-body {
+        /* display: flex;解除 */
+        display: block;
+        width: 100%;
+    }
+    .top-about-body-img {
+        margin: 0 auto;
+        width: 93%;
+    }
+    .top-about-body-content {
+        width: 93%;
+        margin: 0;
+        margin: 0 auto;
+    }
+}
+    
